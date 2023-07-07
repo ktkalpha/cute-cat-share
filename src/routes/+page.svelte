@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import ShareIcon from '../components/ShareIcon.svelte';
 	import LoadingIcon from '../components/LoadingIcon.svelte';
+	import ReloadIcon from '../components/ReloadIcon.svelte';
 
 	interface Cat {
 		url: string;
@@ -58,19 +59,16 @@
 
 <main>
 	<div class="flex flex-col items-start">
-		<img
-			src={`https://cataas.com${cat.url}`}
-			alt="고양이 사진"
-			width="400"
-			height="400"
-			id="image"
-		/>
+		<img src={`https://cataas.com${cat.url}`} alt="고양이 사진" height="400" id="image" />
 		<div id="loading" class="w-[400px] h-[400px] hidden justify-center items-center">
 			<LoadingIcon />
 		</div>
-		<div class="flex flex-row space-x-[200px] items-center justify-end">
+		<div class="flex flex-row space-x-10 items-center justify-end">
 			<button class="text-black dark:text-white border w-fit h-fit" on:click={shareIt}
 				><ShareIcon /></button
+			>
+			<button class="text-black dark:text-white border w-fit h-fit" on:click={getCatIMG}
+				><ReloadIcon /></button
 			>
 			<div class="flex">
 				<label for="extracute" class="dark:text-white text-black text-xl">추가 귀여움</label>
